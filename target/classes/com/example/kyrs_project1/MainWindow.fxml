@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutY="53.0" prefHeight="347.0" prefWidth="600.0" style="-fx-background-color: #184d12;">
+         <children>
+            <Button fx:id="chageQuote" layoutX="476.0" layoutY="308.0" mnemonicParsing="false" text="Изменить цитату" />
+            <Button fx:id="back" layoutX="14.0" layoutY="308.0" mnemonicParsing="false" text="Назад" />
+         </children></AnchorPane>
+      <Label layoutX="255.0" layoutY="14.0" text="Цитаты">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Button fx:id="chageData" layoutX="372.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="214.0" text="Изменение данных аккаунта" />
+   </children>
+</AnchorPane>
