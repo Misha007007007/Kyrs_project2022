@@ -10,7 +10,7 @@
    <children>
       <AnchorPane layoutY="74.0" prefHeight="326.0" prefWidth="600.0" style="-fx-background-color: #184d12;">
          <children>
-            <Button fx:id="chage" layoutX="256.0" layoutY="194.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="89.0" text="Изменить" />
+            <Button fx:id="chage" layoutX="194.0" layoutY="194.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="89.0" text="Изменить" />
             <TextField fx:id="numberQuotes" layoutX="194.0" layoutY="46.0" prefHeight="25.0" prefWidth="212.0" promptText="Номер цитаты">
                <font>
                   <Font size="18.0" />
@@ -22,6 +22,7 @@
                </font>
             </TextField>
             <Button fx:id="back" layoutX="265.0" layoutY="254.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="70.0" text="Назад" />
+            <Button fx:id="delete" layoutX="317.0" layoutY="194.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="89.0" text="Удалить" />
          </children></AnchorPane>
       <Label layoutX="112.0" layoutY="5.0" text="Изменение цитат">
          <font>

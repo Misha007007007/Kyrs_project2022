@@ -10,7 +10,7 @@
    <children>
       <AnchorPane layoutY="82.0" prefHeight="318.0" prefWidth="600.0" style="-fx-background-color: #184d12;">
          <children>
-            <Button fx:id="regInRegistration" layoutX="225.0" layoutY="168.0" mnemonicParsing="false" text="Зарегистрироваться">
+            <Button fx:id="regInRegistration" layoutX="225.0" layoutY="180.0" mnemonicParsing="false" onAction="#registration" text="Зарегистрироваться">
                <font>
                   <Font size="14.0" />
                </font>
@@ -18,7 +18,9 @@
             <Button fx:id="back" layoutX="274.0" layoutY="230.0" mnemonicParsing="false" onAction="#backAvtorization" text="Назад" />
             <TextField fx:id="loginReg" layoutX="175.0" layoutY="14.0" prefHeight="30.0" prefWidth="252.0" promptText="Логин" style="-fx-background-color: #fafafa;" />
             <TextField fx:id="passwordReg" layoutX="175.0" layoutY="63.0" prefHeight="30.0" prefWidth="252.0" promptText="Пароль" style="-fx-background-color: #fafafa;" />
-            <TextField fx:id="group" layoutX="175.0" layoutY="113.0" prefHeight="26.0" prefWidth="252.0" promptText="Группа" style="-fx-background-color: #fafafa;" />
+            <TextField fx:id="group" layoutX="175.0" layoutY="125.0" prefHeight="26.0" prefWidth="252.0" promptText="Группа" style="-fx-background-color: #fafafa;" />
+            <Label fx:id="check" alignment="CENTER" contentDisplay="CENTER" layoutX="91.0" layoutY="159.0" prefHeight="17.0" prefWidth="420.0" textAlignment="CENTER" />
+            <Label fx:id="check2" layoutX="47.0" layoutY="100.0" prefHeight="17.0" prefWidth="378.0" />
          </children></AnchorPane>
       <Label layoutX="163.0" layoutY="14.0" text="Регистрация">
          <font>

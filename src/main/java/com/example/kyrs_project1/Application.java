@@ -24,7 +24,6 @@ public class Application extends javafx.application.Application {
         stage.setTitle("Великие цитаты великих людей");
         stage.setScene(scene);
         stage.show();
-        Application.setConnection();
     }
 
     public static void main(String[] args) {
@@ -40,7 +39,7 @@ public class Application extends javafx.application.Application {
         }
     }
 
-    public static Connection setConnection(){
+    public static Connection connection(){
         Connection connection = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");

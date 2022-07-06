@@ -10,10 +10,10 @@
    <children>
       <AnchorPane layoutY="64.0" prefHeight="336.0" prefWidth="600.0" style="-fx-background-color: #184d12;">
          <children>
-            <Button fx:id="chage" layoutX="237.0" layoutY="221.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="126.0" text="Изменить" />
-            <Button fx:id="back" layoutX="275.0" layoutY="281.0" mnemonicParsing="false" text="Назад" />
-            <TextField fx:id="oldLogin" layoutX="186.0" layoutY="41.0" prefHeight="25.0" prefWidth="230.0" promptText="Старый логин" />
-            <TextField fx:id="newLogin" layoutX="184.0" layoutY="86.0" prefHeight="25.0" prefWidth="230.0" promptText="Новый логин" />
+            <Button fx:id="chage" layoutX="237.0" layoutY="221.0" mnemonicParsing="false" onAction="#chage" prefHeight="37.0" prefWidth="126.0" text="Изменить" />
+            <Button fx:id="back" layoutX="275.0" layoutY="281.0" mnemonicParsing="false" onAction="#back" text="Назад" />
+            <TextField fx:id="oldLogin" layoutX="185.0" layoutY="41.0" prefHeight="25.0" prefWidth="230.0" promptText="Старый логин" />
+            <TextField fx:id="newLogin" layoutX="185.0" layoutY="87.0" prefHeight="25.0" prefWidth="230.0" promptText="Новый логин" />
             <TextField fx:id="newPassword" layoutX="186.0" layoutY="131.0" prefHeight="25.0" prefWidth="230.0" promptText="Новый пароль" />
          </children></AnchorPane>
       <Label layoutX="88.0" text="Изменение данных">

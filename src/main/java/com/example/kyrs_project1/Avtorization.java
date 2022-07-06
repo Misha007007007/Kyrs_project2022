@@ -48,25 +48,19 @@ public class Avtorization {
     //вход при нажатии
     @FXML
     void loginGuest(ActionEvent event) {
-        inputGuest.setOnAction(actionEvent -> {
-            System.out.println("Vxod2");
-        });
+        Application.changeScene("MainWindow.fxml");
     }
 
     //вход при нажатии
     @FXML
     void loginUser(ActionEvent event) {
-        input.setOnAction(actionEvent -> {
-            System.out.println("Vxod");
-        });
+        Application.changeScene("Menu.fxml");
     }
 
     //переход на регистрацию
     @FXML
     void registrationUser(ActionEvent event) {
-        RegistrationInAuthorization.setOnAction(actionEvent -> {
-            Application.changeScene("Registration.fxml");
-        });
+        Application.changeScene("Registration.fxml");
     }
 
     //проверка авторизации
