@@ -37,25 +37,25 @@ public class Menu {
 
     @FXML
     void add(ActionEvent event) {
-
+        Application.changeScene("change.fxml");
     }
 
     //кнопка все цитаты
     @FXML
     void allQuotes(ActionEvent event) {
-
+        Application.changeScene("Quotes.fxml");
     }
 
     //кнопка изменения данных аккаунта
     @FXML
     void chageData(ActionEvent event) {
-
+        Application.changeScene("recovery.fxml");
     }
 
     //кнопка мои цитаты
     @FXML
     void myQuotes(ActionEvent event) {
-
+        Application.changeScene("myQuotes.fxml");
     }
 
     //выход при нажатии

@@ -30,7 +30,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Label fx:id="ckeckPerson" layoutX="240.0" layoutY="6.0" prefHeight="17.0" prefWidth="128.0" />
+            <Label fx:id="check" alignment="CENTER" contentDisplay="CENTER" layoutX="142.0" layoutY="14.0" prefHeight="17.0" prefWidth="316.0" />
             <Button fx:id="inputGuest" layoutX="326.0" layoutY="151.0" mnemonicParsing="false" onAction="#loginGuest" prefHeight="51.0" prefWidth="161.0" style="-fx-background-color: #fafafa;" text="Войти как гость">
                <font>
                   <Font size="18.0" />

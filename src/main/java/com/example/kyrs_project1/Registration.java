@@ -24,6 +24,7 @@ public class Registration {
     @FXML
     private URL location;
 
+    //поле для высвечивания ошибок
     @FXML
     private Label check;
 
@@ -49,11 +50,6 @@ public class Registration {
     //кнопка регистрации
     @FXML
     private Button regInRegistration;
-
-    //регистрация при нажатии
-    @FXML
-    void initialize() {
-    }
 
     //переход на авторизацию
     @FXML
@@ -85,6 +81,7 @@ public class Registration {
                 }
             }
             connect.close();
+            statement.close();
         }catch (SQLException e){
             e.printStackTrace();
             System.out.println("Искл при регистрации");
