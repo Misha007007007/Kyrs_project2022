@@ -1,4 +1,4 @@
-package com.example.kyrs_project1;
+package com.example.kyrs_project1.Controllers;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -7,6 +7,8 @@ import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
+import com.example.kyrs_project1.Application;
+import com.example.kyrs_project1.Users;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

@@ -13,4 +13,6 @@ module com.example.kyrs_project1 {
 
     opens com.example.kyrs_project1 to javafx.fxml;
     exports com.example.kyrs_project1;
+    exports com.example.kyrs_project1.Controllers;
+    opens com.example.kyrs_project1.Controllers to javafx.fxml;
 }

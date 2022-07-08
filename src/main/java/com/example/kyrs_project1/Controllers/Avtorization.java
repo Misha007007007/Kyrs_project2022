@@ -1,9 +1,11 @@
-package com.example.kyrs_project1;
+package com.example.kyrs_project1.Controllers;
 
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
+import com.example.kyrs_project1.Application;
+import com.example.kyrs_project1.Users;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -61,13 +63,19 @@ public class Avtorization {
 
             String query = String.format("SELECT * FROM users WHERE login = '%s' AND password_hash = '%s';", login.getText(), users.hashing(password.getText()));
 
-            if (login.getText() == "" || users.hashing(password.getText()) == "") {
+            if (login.getText() == "" || password.getText() == "") {
                 check.setTextFill(Paint.valueOf("RED"));
-                check.setText("Запоните все поля для успешной авторизации!");
+                check.setText("Заполните все поля для успешной авторизации!");
             } else {
                 try {
-                    statement.execute(query);
-                    Application.changeScene("Menu.fxml");
+                    ResultSet resultSet = statement.executeQuery(query);
+                    if (resultSet.next()) {
+                        Application.changeScene("Menu.fxml");
+                    }
+                    else{
+                        check.setTextFill(Paint.valueOf("RED"));
+                        check.setText("Введены неверные данные!");
+                    }
 
                 } catch (SQLIntegrityConstraintViolationException e) {
                     check.setTextFill(Paint.valueOf("RED"));

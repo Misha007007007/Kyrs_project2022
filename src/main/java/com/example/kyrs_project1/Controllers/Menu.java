@@ -1,7 +1,9 @@
-package com.example.kyrs_project1;
+package com.example.kyrs_project1.Controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import com.example.kyrs_project1.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -37,7 +39,7 @@ public class Menu {
 
     @FXML
     void add(ActionEvent event) {
-        Application.changeScene("change.fxml");
+        Application.changeScene("addition.fxml");
     }
 
     //кнопка все цитаты
@@ -62,6 +64,16 @@ public class Menu {
     @FXML
     void exit(ActionEvent event) {
         Application.changeScene("hello-view.fxml");
+    }
+
+    // кнопка измнить цитату
+    @FXML
+    private Button changeQuote;
+
+    //переход на изменения цитат
+    @FXML
+    void changeQuote(ActionEvent event) {
+        Application.changeScene("change.fxml");
     }
 
     @FXML
