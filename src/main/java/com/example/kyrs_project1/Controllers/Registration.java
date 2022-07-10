@@ -1,10 +1,7 @@
 package com.example.kyrs_project1.Controllers;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.SQLIntegrityConstraintViolationException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 import com.example.kyrs_project1.Application;
@@ -64,17 +61,20 @@ public class Registration {
     void registration(ActionEvent event) {
         Connection connect = Application.connection();
         try {
-            Statement statement = connect.createStatement();
             users = new Users();
-
-            String query = String.format("INSERT INTO users(login, password_hash, band, role) VALUES ('%s', '%s', '%s', %d);", loginReg.getText(), users.hashing(passwordReg.getText()), group.getText(), 3);
-
+            String query = "INSERT INTO users(login, password_hash, band, role) VALUES (?, ?, ?, ?);";
+            PreparedStatement statement = connect.prepareStatement(query);
+            //String query = String.format("INSERT INTO users(login, password_hash, band, role) VALUES ('%s', '%s', '%s', %d);", loginReg.getText(), users.hashing(passwordReg.getText()), group.getText(), 3);
+            statement.setString(1, loginReg.getText());
+            statement.setString(2, users.hashing(passwordReg.getText()));
+            statement.setString(3, group.getText());
+            statement.setInt(4, 3);
             if (loginReg.getText() == "" || users.hashing(passwordReg.getText()) == "" || group.getText() == "") {
                 check.setTextFill(Paint.valueOf("RED"));
                 check.setText("Запоните все поля для успешной регистрации!");
             } else {
                 try {
-                    statement.execute(query);
+                    statement.execute();
                     check.setTextFill(Paint.valueOf("GREEN"));
                     check.setText("Вы зарегистрированы, авторизуйтесь на предыдышей странице!");
                 } catch (SQLIntegrityConstraintViolationException e) {

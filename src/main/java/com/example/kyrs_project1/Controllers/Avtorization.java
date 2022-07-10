@@ -59,17 +59,20 @@ public class Avtorization {
     void loginUser(ActionEvent event) {
         Connection connect = Application.connection();
         try {
-            Statement statement = connect.createStatement();
             user = new Users();
+            String query = "SELECT * FROM users WHERE login = ? AND password_hash = ?;";
 
-            String query = String.format("SELECT * FROM users WHERE login = '%s' AND password_hash = '%s';", login.getText(), user.hashing(password.getText()));
+            PreparedStatement statement = connect.prepareStatement(query);
+            statement.setString(1, login.getText());
+            statement.setString(2, user.hashing(password.getText()));
+
 
             if (login.getText() == "" || password.getText() == "") {
                 check.setTextFill(Paint.valueOf("RED"));
                 check.setText("Заполните все поля для успешной авторизации!");
             } else {
                 try {
-                    ResultSet resultSet = statement.executeQuery(query);
+                    ResultSet resultSet = statement.executeQuery();
                     if (resultSet.next()) {
                         int role = resultSet.getInt("role");
                         String band = resultSet.getString("band");
@@ -95,7 +98,7 @@ public class Avtorization {
             statement.close();
         }catch (SQLException e){
             e.printStackTrace();
-            System.out.println("Искл при регистрации");
+            System.out.println("Искл при авторизации");
         }
     }
 

@@ -57,10 +57,15 @@ public class RecoveryLogin {
     void chageLogin(ActionEvent event) {
         Connection connect = Application.connection();
         try {
-            Statement statement = connect.createStatement();
             user = new Users();
+            String query = "UPDATE users SET login = ? WHERE login = ?";
+            PreparedStatement statement = connect.prepareStatement(query);
 
-            String query = String.format("UPDATE users SET login = '%s' WHERE login = '%s'", newLogin.getText(), Application.user.getLogin());
+            statement.setString(1, newLogin.getText());
+            statement.setString(2, Application.user.getLogin());
+
+
+            //String query = String.format("UPDATE users SET login = '%s' WHERE login = '%s'", newLogin.getText(), Application.user.getLogin());
 
             if (newLogin.getText() == "" || oldLogin.getText() == "") {
                 check.setTextFill(Paint.valueOf("RED"));
@@ -68,7 +73,7 @@ public class RecoveryLogin {
             } else {
                 try {
                     if(Objects.equals(oldLogin.getText(), Application.user.getLogin())){
-                        statement.execute(query);
+                        statement.execute();
                         //System.out.println(Application.user.getLogin());
                         check.setTextFill(Paint.valueOf("GREEN"));
                         check.setText("Ваш логин изменен!");

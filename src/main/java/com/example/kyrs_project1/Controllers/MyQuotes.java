@@ -60,12 +60,12 @@ public class MyQuotes {
 
     @FXML
     void change(ActionEvent event) {
-        Application.changeScene("change.fxml");
+        Application.changeScene("changeQuote.fxml");
     }
 
     @FXML
     void delete(ActionEvent event) {
-        Application.changeScene("change.fxml");
+        Application.changeScene("deleteQuote.fxml");
     }
 
 

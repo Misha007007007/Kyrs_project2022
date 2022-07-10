@@ -19,8 +19,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class Quotes {
     private QuotesContainer quotesContainer = new QuotesContainer();
-    private Users users;
 
+    private Users users;
 
     //нопка назад
     @FXML
@@ -65,7 +65,6 @@ public class Quotes {
         date.setCellValueFactory(new PropertyValueFactory<QuoteEntry, Date>("date"));
         teacher.setCellValueFactory(new PropertyValueFactory<QuoteEntry, String>("teacher"));
         quotes.setCellValueFactory(new PropertyValueFactory<QuoteEntry, String>("content"));
-
 
         quotesContainer.fill();
         tabelQuotes.setItems(quotesContainer.getQuoteEntries());

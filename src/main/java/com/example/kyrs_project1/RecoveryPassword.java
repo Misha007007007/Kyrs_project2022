@@ -52,10 +52,14 @@ public class RecoveryPassword {
     void chage(ActionEvent event) {
         Connection connect = Application.connection();
         try {
-            Statement statement = connect.createStatement();
             user = new Users();
+            String query = "UPDATE users SET password_hash = ? WHERE login = ?";
+            PreparedStatement statement = connect.prepareStatement(query);
 
-            String query = String.format("UPDATE users SET password_hash = '%s' WHERE login = '%s'", Users.MakeHashing(newPassword.getText()), Application.user.getLogin());
+            statement.setString(1, Users.MakeHashing(newPassword.getText()));
+            statement.setString(2, Application.user.getLogin());
+
+            //String query = String.format("UPDATE users SET password_hash = '%s' WHERE login = '%s'", Users.MakeHashing(newPassword.getText()), Application.user.getLogin());
 
             if (Objects.equals(Users.MakeHashing(oldPassword.getText()), Users.MakeHashing(newPassword.getText()))){
                 check.setTextFill(Paint.valueOf("RED"));
@@ -67,7 +71,7 @@ public class RecoveryPassword {
             } else {
                 try {
                     if (Objects.equals(Users.MakeHashing(oldPassword.getText()), Application.user.getHash_password())) {
-                        statement.execute(query);
+                        statement.execute();
                         check.setTextFill(Paint.valueOf("GREEN"));
                         check.setText("Ваш пароль изменен!");
                         Application.user.setHash_password(Users.MakeHashing(oldPassword.getText()));

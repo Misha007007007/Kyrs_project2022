@@ -30,10 +30,10 @@ public class QuotesContainer {
 
         Connection connect = Application.connection();
         try {
-            Statement statement = connect.createStatement();
+            String query = "SELECT * FROM teacher_quotes";
+            PreparedStatement statement = connect.prepareStatement(query);
 
-            String query = String.format("SELECT * FROM teacher_quotes");
-            ResultSet resultSet = statement.executeQuery(query);
+            ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()){
                 tempId = resultSet.getInt("id");
                 tempLogin = resultSet.getString("login_user");
@@ -64,10 +64,12 @@ public class QuotesContainer {
 
         Connection connect = Application.connection();
         try {
-            Statement statement = connect.createStatement();
+            String query = "SELECT * FROM teacher_quotes WHERE login_user = ?;";
+            PreparedStatement statement = connect.prepareStatement(query);
             //"SELECT * FROM users WHERE login = '%s' AND password_hash = '%s';", login.getText(), users.hashing(password.getText())
-            String query = String.format("SELECT * FROM teacher_quotes WHERE login_user = '%s';", userLogin);
-            ResultSet resultSet = statement.executeQuery(query);
+            //String query = String.format("SELECT * FROM teacher_quotes WHERE login_user = '%s';", userLogin);
+            statement.setString(1, userLogin);
+            ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()){
                 tempId = resultSet.getInt("id");
                 tempLogin = resultSet.getString("login_user");
