@@ -5,20 +5,19 @@ import java.util.Date;
 //одна циатат, объект, который собержиться в контейнере
 public class QuoteEntry {
     private int id;
-
+    private String login;
     private String content;
     private String subject;
-    private String teacher;
     private Date date;
-    private String login;
+    private String teacher;
 
-    public QuoteEntry(int id, String content, String subject, String teacher, Date date, String login) {
+    public QuoteEntry(int id, String login, String content, String subject, Date date, String teacher) {
         this.id = id;
+        this.login = login;
         this.content = content;
         this.subject = subject;
-        this.teacher = teacher;
         this.date = date;
-        this.login = login;
+        this.teacher = teacher;
     }
 
     public int getId() {
@@ -43,5 +42,17 @@ public class QuoteEntry {
 
     public String getLogin() {
         return login;
+    }
+
+    @Override
+    public String toString() {
+        return "QuoteEntry{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", content='" + content + '\'' +
+                ", subject='" + subject + '\'' +
+                ", date=" + date +
+                ", teacher='" + teacher + '\'' +
+                '}';
     }
 }

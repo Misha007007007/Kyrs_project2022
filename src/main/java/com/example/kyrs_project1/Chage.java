@@ -43,7 +43,7 @@ public class Chage {
     //метод назаж
     @FXML
     void back(ActionEvent event) {
-        Application.changeScene("Menu.fxml");
+        Application.changeScene("myQuotes.fxml");
     }
 
     //метод изменить
@@ -65,7 +65,5 @@ public class Chage {
         assert chageQuote != null : "fx:id=\"chageQuote\" was not injected: check your FXML file 'change.fxml'.";
         assert delete != null : "fx:id=\"delete\" was not injected: check your FXML file 'change.fxml'.";
         assert numberQuotes != null : "fx:id=\"numberQuotes\" was not injected: check your FXML file 'change.fxml'.";
-
     }
-
 }

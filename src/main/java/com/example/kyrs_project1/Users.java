@@ -6,6 +6,10 @@ import java.security.NoSuchAlgorithmException;
 public class Users {
     private String login;
     private String hash_password;
+    private int role;
+    private String band;
+
+    private QuotesContainer quotesContainer;
 
     public String getLogin() {
         return login;
@@ -39,8 +43,40 @@ public class Users {
             System.out.println("1");
         }
         return hash_password;
+    }
 
+    public Users(String login, String hash_password, int role, String band, QuotesContainer quotesContainer) {
+        this.login = login;
+        this.hash_password = hash_password;
+        this.role = role;
+        this.band = band;
+        this.quotesContainer = quotesContainer;
+    }
+
+    public Users() {
 
     }
 
+    @Override
+    public String toString() {
+        return "Users{" +
+                "login='" + login + '\'' +
+                ", hash_password='" + hash_password + '\'' +
+                ", role=" + role +
+                ", band=" + band +
+                ", quotesContainer=" + quotesContainer +
+                '}';
+    }
+
+    public int getRole() {
+        return role;
+    }
+
+    public String getBand() {
+        return band;
+    }
+
+    public QuotesContainer getQuotesContainer() {
+        return quotesContainer;
+    }
 }

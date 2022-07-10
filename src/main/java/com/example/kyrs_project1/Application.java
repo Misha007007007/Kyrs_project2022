@@ -14,6 +14,9 @@ public class Application extends javafx.application.Application {
 
     private static Stage thisStage;
 
+    public static Users user;
+
+
     @Override
     public void start(Stage stage) throws IOException {
         thisStage = stage;

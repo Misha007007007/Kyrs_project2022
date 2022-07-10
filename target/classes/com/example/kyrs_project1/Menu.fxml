@@ -9,11 +9,10 @@
    <children>
       <AnchorPane layoutY="73.0" prefHeight="327.0" prefWidth="600.0" style="-fx-background-color: #184d12;">
          <children>
-            <Button fx:id="add" layoutX="317.0" layoutY="14.0" mnemonicParsing="false" onAction="#add" prefHeight="79.0" prefWidth="114.0" text="Добавить цитату" />
             <Button fx:id="chageData" layoutX="197.0" layoutY="225.0" mnemonicParsing="false" onAction="#chageData" prefHeight="79.0" prefWidth="206.0" text="Изменение данных аккаунта" />
-            <Button fx:id="myQuotes" layoutX="169.0" layoutY="14.0" mnemonicParsing="false" onAction="#myQuotes" prefHeight="79.0" prefWidth="114.0" text="Мои цитаты" />
-            <Button fx:id="allQuotes" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#allQuotes" prefHeight="79.0" prefWidth="114.0" text="Сборник цитат" />
-            <Button fx:id="changeQuote" layoutX="466.0" layoutY="14.0" mnemonicParsing="false" onAction="#changeQuote" prefHeight="79.0" prefWidth="114.0" text="Изменить цитату" />
+            <Button fx:id="myQuotes" layoutX="472.0" layoutY="225.0" mnemonicParsing="false" onAction="#myQuotes" prefHeight="79.0" prefWidth="114.0" text="Мои цитаты" />
+            <Button fx:id="allQuotes" layoutX="14.0" layoutY="225.0" mnemonicParsing="false" onAction="#allQuotes" prefHeight="79.0" prefWidth="114.0" text="Сборник цитат" />
+            <Label layoutX="86.0" layoutY="29.0" text="Для изменения или добавления новых цитат перейдите в окно &quot;Мои цитаты&quot;" textFill="WHITE" />
          </children>
       </AnchorPane>
       <Label layoutX="286.0" layoutY="39.0" />

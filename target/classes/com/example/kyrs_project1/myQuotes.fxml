@@ -7,20 +7,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kyrs_project1.MyQuotes">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kyrs_project1.Controllers.MyQuotes">
    <children>
       <AnchorPane layoutY="68.0" prefHeight="332.0" prefWidth="600.0" style="-fx-background-color: #184d12;">
          <children>
             <Button fx:id="Back" layoutX="14.0" layoutY="293.0" mnemonicParsing="false" onAction="#back" text="Назад" />
-            <TableView layoutX="14.0" layoutY="14.0" prefHeight="269.0" prefWidth="573.0">
+            <TableView fx:id="myQotesTabel" layoutX="14.0" layoutY="14.0" prefHeight="269.0" prefWidth="573.0">
               <columns>
-                <TableColumn prefWidth="247.0" text="Цитата" />
-                <TableColumn prefWidth="86.0" text="Предмет" />
-                  <TableColumn prefWidth="78.0" text="Дата" />
-                  <TableColumn prefWidth="110.0" text="Преподаватель" />
-                  <TableColumn prefWidth="51.0" text="№" />
+                <TableColumn fx:id="quote" prefWidth="247.0" text="Цитата" />
+                <TableColumn fx:id="subject" prefWidth="86.0" text="Предмет" />
+                  <TableColumn fx:id="data" prefWidth="78.0" text="Дата" />
+                  <TableColumn fx:id="teacher" prefWidth="110.0" text="Преподаватель" />
+                  <TableColumn fx:id="login" prefWidth="51.0" text="Логин" />
               </columns>
             </TableView>
+            <Button fx:id="add" layoutX="479.0" layoutY="293.0" mnemonicParsing="false" onAction="#add" text="Добавить цитату" />
+            <Button fx:id="change" layoutX="363.0" layoutY="293.0" mnemonicParsing="false" onAction="#change" text="Изменить цитату" />
+            <Button fx:id="delete" layoutX="258.0" layoutY="293.0" mnemonicParsing="false" onAction="#delete" text="Удалить цитату" />
          </children>
       </AnchorPane>
       <Label layoutX="164.0" text="Мои цитаты">

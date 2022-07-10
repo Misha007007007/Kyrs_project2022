@@ -5,6 +5,7 @@ import java.sql.*;
 import java.util.ResourceBundle;
 
 import com.example.kyrs_project1.Application;
+import com.example.kyrs_project1.QuotesContainer;
 import com.example.kyrs_project1.Users;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,7 +16,7 @@ import javafx.scene.paint.Paint;
 
 public class Avtorization {
 
-    private Users users;
+    Users user;
 
     //кнопка войти как гость
     @FXML
@@ -59,9 +60,9 @@ public class Avtorization {
         Connection connect = Application.connection();
         try {
             Statement statement = connect.createStatement();
-            users = new Users();
+            user = new Users();
 
-            String query = String.format("SELECT * FROM users WHERE login = '%s' AND password_hash = '%s';", login.getText(), users.hashing(password.getText()));
+            String query = String.format("SELECT * FROM users WHERE login = '%s' AND password_hash = '%s';", login.getText(), user.hashing(password.getText()));
 
             if (login.getText() == "" || password.getText() == "") {
                 check.setTextFill(Paint.valueOf("RED"));
@@ -70,6 +71,14 @@ public class Avtorization {
                 try {
                     ResultSet resultSet = statement.executeQuery(query);
                     if (resultSet.next()) {
+                        int role = resultSet.getInt("role");
+                        String band = resultSet.getString("band");
+                        QuotesContainer quotesContainer = new QuotesContainer();
+                        quotesContainer.fillUser(login.getText());
+                        user = new Users(login.getText(), user.hashing(password.getText()), role, band, quotesContainer);
+
+                        Application.user = user;
+                        System.out.println(user);
                         Application.changeScene("Menu.fxml");
                     }
                     else{

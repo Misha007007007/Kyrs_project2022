@@ -1,14 +1,11 @@
 package com.example.kyrs_project1.Controllers;
-//класс со всеми ццитататми
+
 import java.net.URL;
-import java.util.Collection;
 import java.util.Date;
-import java.util.Properties;
 import java.util.ResourceBundle;
 
 import com.example.kyrs_project1.Application;
 import com.example.kyrs_project1.QuoteEntry;
-import com.example.kyrs_project1.QuotesContainer;
 import com.example.kyrs_project1.Users;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,14 +14,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class Quotes {
-    private QuotesContainer quotesContainer = new QuotesContainer();
-    private Users users;
-
-
-    //нопка назад
-    @FXML
-    private Button back;
+public class MyQuotes {
+    Users user;
 
     @FXML
     private ResourceBundle resources;
@@ -33,41 +24,68 @@ public class Quotes {
     private URL location;
 
     @FXML
-    private TableColumn<QuoteEntry, Date> date;
+    private Button Back;
 
     @FXML
-    private TableColumn<QuoteEntry, String> lognUser;
+    private Button add;
 
     @FXML
-    private TableColumn<QuoteEntry, String> quotes;
+    private Button change;
+
+    @FXML
+    private TableColumn<QuoteEntry, Date> data;
+
+    @FXML
+    private Button delete;
+
+    @FXML
+    private TableColumn<QuoteEntry, String> login;
+
+    @FXML
+    private TableView<QuoteEntry> myQotesTabel;
+
+    @FXML
+    private TableColumn<QuoteEntry, String> quote;
 
     @FXML
     private TableColumn<QuoteEntry, String> subject;
 
     @FXML
     private TableColumn<QuoteEntry, String> teacher;
-    //таблица
+
     @FXML
-    private TableView tabelQuotes;
+    void add(ActionEvent event) {
+
+    }
+
+    @FXML
+    void change(ActionEvent event) {
+
+    }
+
+    @FXML
+    void delete(ActionEvent event) {
+
+    }
 
 
-    //метод назад
     @FXML
     void back(ActionEvent event) {
         Application.changeScene("Menu.fxml");
     }
 
+
+
     @FXML
     void initialize() {
-        lognUser.setCellValueFactory(new PropertyValueFactory<QuoteEntry, String>("login"));
+        user = Application.user;
 
+        login.setCellValueFactory(new PropertyValueFactory<QuoteEntry, String>("login"));
         subject.setCellValueFactory(new PropertyValueFactory<QuoteEntry, String>("subject"));
-        date.setCellValueFactory(new PropertyValueFactory<QuoteEntry, Date>("date"));
+        data.setCellValueFactory(new PropertyValueFactory<QuoteEntry, Date>("date"));
         teacher.setCellValueFactory(new PropertyValueFactory<QuoteEntry, String>("teacher"));
-        quotes.setCellValueFactory(new PropertyValueFactory<QuoteEntry, String>("content"));
+        quote.setCellValueFactory(new PropertyValueFactory<QuoteEntry, String>("content"));
 
-
-        quotesContainer.fill();
-        tabelQuotes.setItems(quotesContainer.getQuoteEntries());
+        myQotesTabel.setItems(user.getQuotesContainer().getQuoteEntries());
     }
 }

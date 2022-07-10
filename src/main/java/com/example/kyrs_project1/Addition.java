@@ -44,7 +44,7 @@ public class Addition {
 
     @FXML
     void back(ActionEvent event) {
-        Application.changeScene("Menu.fxml");
+        Application.changeScene("myQuotes.fxml");
     }
 
     @FXML
