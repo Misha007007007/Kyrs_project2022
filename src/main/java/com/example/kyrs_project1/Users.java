@@ -68,6 +68,24 @@ public class Users {
                 '}';
     }
 
+    //функция хэширования
+    public static String MakeHashing(String password) {
+        String hash_password = "";
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+
+            byte[] bytes = md.digest(password.getBytes());
+
+            for (byte b : bytes) {
+                hash_password += String.format("%02X", b);
+            }
+
+        } catch (NoSuchAlgorithmException e) {
+            System.out.println("1");
+        }
+        return hash_password;
+    }
+
     public int getRole() {
         return role;
     }
@@ -79,4 +97,17 @@ public class Users {
     public QuotesContainer getQuotesContainer() {
         return quotesContainer;
     }
+
+    public void setRole(int role) {
+        this.role = role;
+    }
+
+    public void setBand(String band) {
+        this.band = band;
+    }
+
+    public void setQuotesContainer(QuotesContainer quotesContainer) {
+        this.quotesContainer = quotesContainer;
+    }
+
 }

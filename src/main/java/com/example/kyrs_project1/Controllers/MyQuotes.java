@@ -55,17 +55,17 @@ public class MyQuotes {
 
     @FXML
     void add(ActionEvent event) {
-
+        Application.changeScene("addition.fxml");
     }
 
     @FXML
     void change(ActionEvent event) {
-
+        Application.changeScene("change.fxml");
     }
 
     @FXML
     void delete(ActionEvent event) {
-
+        Application.changeScene("change.fxml");
     }
 
 

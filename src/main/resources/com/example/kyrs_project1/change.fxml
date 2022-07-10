@@ -11,12 +11,12 @@
       <AnchorPane layoutY="74.0" prefHeight="326.0" prefWidth="600.0" style="-fx-background-color: #184d12;">
          <children>
             <Button fx:id="chage" layoutX="194.0" layoutY="194.0" mnemonicParsing="false" onAction="#chage" prefHeight="39.0" prefWidth="89.0" text="Изменить" />
-            <TextField fx:id="numberQuotes" layoutX="194.0" layoutY="46.0" prefHeight="25.0" prefWidth="212.0" promptText="Номер цитаты">
+            <TextField fx:id="oldQuote" layoutX="194.0" layoutY="46.0" prefHeight="25.0" prefWidth="212.0" promptText="Старая цитаты">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
-            <TextField fx:id="chageQuote" layoutX="194.0" layoutY="103.0" prefHeight="60.0" prefWidth="212.0" promptText="Изменнная цитата">
+            <TextField fx:id="newQuote" layoutX="194.0" layoutY="103.0" prefHeight="60.0" prefWidth="212.0" promptText="Новая цитата">
                <font>
                   <Font size="18.0" />
                </font>

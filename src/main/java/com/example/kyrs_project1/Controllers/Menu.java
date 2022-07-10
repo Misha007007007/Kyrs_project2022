@@ -16,15 +16,11 @@ public class Menu {
     @FXML
     private URL location;
 
-    //кнопка добавить/удалить
-    @FXML
-    private Button add;
-
     //кнопка все цитаты
     @FXML
     private Button allQuotes;
 
-    //кнопка изменения данных аккаунта
+    //кнопка изменения логина
     @FXML
     private Button chageData;
 
@@ -36,22 +32,20 @@ public class Menu {
     @FXML
     private Button myQuotes;
 
-
-    @FXML
-    void add(ActionEvent event) {
-        Application.changeScene("addition.fxml");
-    }
-
     //кнопка все цитаты
     @FXML
     void allQuotes(ActionEvent event) {
         Application.changeScene("Quotes.fxml");
     }
 
-    //кнопка изменения данных аккаунта
+    //кнопка изменения пароля
+    @FXML
+    private Button chagePassword;
+
+    //кнопка изменения логина
     @FXML
     void chageData(ActionEvent event) {
-        Application.changeScene("recovery.fxml");
+        Application.changeScene("recoveryLogin.fxml");
     }
 
     //кнопка мои цитаты
@@ -66,14 +60,10 @@ public class Menu {
         Application.changeScene("hello-view.fxml");
     }
 
-    // кнопка измнить цитату
+    //кнопка изменения пароля
     @FXML
-    private Button changeQuote;
-
-    //переход на изменения цитат
-    @FXML
-    void changeQuote(ActionEvent event) {
-        Application.changeScene("change.fxml");
+    void chagePassword(ActionEvent event) {
+        Application.changeScene("recoveryPassword.fxml");
     }
 
     @FXML

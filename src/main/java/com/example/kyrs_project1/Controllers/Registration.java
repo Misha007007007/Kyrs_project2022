@@ -65,7 +65,7 @@ public class Registration {
         Connection connect = Application.connection();
         try {
             Statement statement = connect.createStatement();
-            //users = new Users();
+            users = new Users();
 
             String query = String.format("INSERT INTO users(login, password_hash, band, role) VALUES ('%s', '%s', '%s', %d);", loginReg.getText(), users.hashing(passwordReg.getText()), group.getText(), 3);
 
