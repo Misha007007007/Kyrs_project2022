@@ -2,6 +2,7 @@ package com.example.kyrs_project1.Controllers;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import com.example.kyrs_project1.Application;
@@ -69,9 +70,14 @@ public class Registration {
             statement.setString(2, users.hashing(passwordReg.getText()));
             statement.setString(3, group.getText());
             statement.setInt(4, 7);
+
             if (loginReg.getText() == "" || users.hashing(passwordReg.getText()) == "" || group.getText() == "") {
                 check.setTextFill(Paint.valueOf("RED"));
                 check.setText("Запоните все поля для успешной регистрации!");
+            } else if (!Objects.equals(group.getText(), "1") && !Objects.equals(group.getText(), "2") && !Objects.equals(group.getText(), "3")){
+                check.setTextFill(Paint.valueOf("RED"));
+                check.setText("Неверная группа!");
+                System.out.println(group.getText());
             } else {
                 try {
                     statement.execute();

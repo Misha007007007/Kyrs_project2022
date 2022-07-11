@@ -7,12 +7,15 @@ import java.util.ResourceBundle;
 import com.example.kyrs_project1.Application;
 import com.example.kyrs_project1.QuoteEntry;
 import com.example.kyrs_project1.Users;
+import javafx.collections.ListChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Paint;
 
 public class MyQuotes {
     Users user;
@@ -28,6 +31,9 @@ public class MyQuotes {
 
     @FXML
     private Button add;
+
+    @FXML
+    private Label count;
 
     @FXML
     private Button change;
@@ -87,5 +93,17 @@ public class MyQuotes {
         quote.setCellValueFactory(new PropertyValueFactory<QuoteEntry, String>("content"));
 
         myQotesTabel.setItems(user.getQuotesContainer().getQuoteEntries());
+        updateCount();
+        Application.user.getQuotesContainer().getQuoteEntries().addListener(new ListChangeListener<QuoteEntry>() {
+            @Override
+            public void onChanged(Change<? extends QuoteEntry> change) {
+                updateCount();
+            }
+        });
+    }
+
+    private void updateCount(){
+        count.setTextFill(Paint.valueOf("WHITE"));
+        count.setText("Количество цитат: " + Application.user.getQuotesContainer().getQuoteEntries().size());
     }
 }
