@@ -53,41 +53,40 @@ public class deleteQuote {
         try {
             user = new Users();
 
-            /*
+            PreparedStatement statement = null;
             //обычный пользователь
             if (Objects.equals(Application.user.getRole(), 7)) {
                 String query = "DELETE FROM `teacher_quotes` WHERE `teacher_quotes`.`quote` = ? AND `teacher_quotes`.`login_user` = ?";
                 statement = connect.prepareStatement(query);
 
-                statement.setString(5, Application.user.getLogin());
-                statement.setString(6, oldQuote.getText());
+                statement.setString(1, oldQuote.getText());
+                statement.setString(2, Application.user.getLogin());
             } //админ (суперпользователь)
             else if(Objects.equals(Application.user.getRole(), 0)){
-                String query = "DELETE FROM `teacher_quotes` WHERE `teacher_quotes`.`quote` = ? AND `teacher_quotes`.`login_user` = ?";
+                String query = "DELETE FROM `teacher_quotes` WHERE `teacher_quotes`.`quote` = ?";
                 statement = connect.prepareStatement(query);
 
+                statement.setString(1, oldQuote.getText());
             } //верификатор 1
             else if(Objects.equals(Application.user.getRole(), 1)){
-                String query = "DELETE FROM `teacher_quotes` WHERE `teacher_quotes`.`quote` = ? AND `teacher_quotes`.`login_user` = ?";
+                String query = "DELETE FROM `teacher_quotes` WHERE `teacher_quotes`.`quote` = ? AND `teacher_quotes`.`band` = 1";
                 statement = connect.prepareStatement(query);
 
+                statement.setString(1, oldQuote.getText());
             } //верификатор 2
             else if(Objects.equals(Application.user.getRole(), 2)){
-                String query = "DELETE FROM `teacher_quotes` WHERE `teacher_quotes`.`quote` = ? AND `teacher_quotes`.`login_user` = ?";
+                String query = "DELETE FROM `teacher_quotes` WHERE `teacher_quotes`.`quote` = ? AND `teacher_quotes`.`band` = 2";
                 statement = connect.prepareStatement(query);
 
+                statement.setString(1, oldQuote.getText());
             } //верификатор 3
             else if(Objects.equals(Application.user.getRole(), 3)){
-                String query = "DELETE FROM `teacher_quotes` WHERE `teacher_quotes`.`quote` = ? AND `teacher_quotes`.`login_user` = ?";
+                String query = "DELETE FROM `teacher_quotes` WHERE `teacher_quotes`.`quote` = ? AND `teacher_quotes`.`band` = 3";
                 statement = connect.prepareStatement(query);
 
+                statement.setString(1, oldQuote.getText());
             }
-            
-             */
-            String query = "DELETE FROM `teacher_quotes` WHERE `teacher_quotes`.`quote` = ? AND `teacher_quotes`.`login_user` = ?";
-            PreparedStatement statement = connect.prepareStatement(query);
-            statement.setString(1, oldQuote.getText());
-            statement.setString(2, Application.user.getLogin());
+
 
             if (oldQuote.getText() == "") {
                 check.setTextFill(Paint.valueOf("RED"));
@@ -112,7 +111,7 @@ public class deleteQuote {
             statement.close();
         }catch (SQLException e){
             e.printStackTrace();
-            System.out.println("Искл при регистрации");
+            System.out.println("Искл при удалении");
         }
     }
 
