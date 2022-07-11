@@ -56,14 +56,15 @@ public class Addition {
         try {
             user = new Users();
 
-            String query = "INSERT INTO teacher_quotes (login_user, quote, subject, date, teacher) VALUES (?, ?, ?, ?, ?);";
+            String query = "INSERT INTO teacher_quotes (login_user, band, quote, subject, date, teacher) VALUES (?, ?, ?, ?, ?, ?);";
             PreparedStatement statement = connect.prepareStatement(query);
 
             statement.setString(1, Application.user.getLogin());
-            statement.setString(2, quote.getText());
-            statement.setString(3, subject.getText());
-            statement.setString(4, String.valueOf(date.getValue()));
-            statement.setString(5, teacher.getText());
+            statement.setString(2, Application.user.getBand());
+            statement.setString(3, quote.getText());
+            statement.setString(4, subject.getText());
+            statement.setString(5, String.valueOf(date.getValue()));
+            statement.setString(6, teacher.getText());
 
             //String query = String.format("INSERT INTO teacher_quotes (login_user, quote, subject, date, teacher) VALUES ('%s', '%s', '%s', %d, '%s');", user.getLogin(), quote.getText(), subject.getText(), date.getValue(), teacher.getText());
 

@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -66,17 +67,51 @@ public class СhangeQuote {
     @FXML
     void change(ActionEvent event) {
         Connection connect = Application.connection();
+        PreparedStatement statement = null;
         try {
             user = new Users();
+            //обычный пользователь
+            if (Objects.equals(Application.user.getRole(), 7)) {
+                String query = "UPDATE `teacher_quotes` SET quote = ?, subject = ?, date = ?, teacher = ? WHERE login_user = ? AND quote = ?";
+                statement = connect.prepareStatement(query);
 
-            String query = "UPDATE `teacher_quotes` SET quote = ?, subject = ?, date = ?, teacher = ? WHERE login_user = ? AND quote = ?";
-            PreparedStatement statement = connect.prepareStatement(query);
+                statement.setString(5, Application.user.getLogin());
+                statement.setString(6, oldQuote.getText());
+            } //админ (суперпользователь)
+            else if(Objects.equals(Application.user.getRole(), 0)){
+                String query = "UPDATE `teacher_quotes` SET quote = ?, subject = ?, date = ?, teacher = ? WHERE quote = ?";
+                statement = connect.prepareStatement(query);
+
+            } //верификатор 1
+            else if(Objects.equals(Application.user.getRole(), 1)){
+                String query = "UPDATE `teacher_quotes` SET quote = ?, subject = ?, date = ?, teacher = ? WHERE quote = ? AND band = 1";
+                statement = connect.prepareStatement(query);
+
+            } //верификатор 2
+            else if(Objects.equals(Application.user.getRole(), 2)){
+                String query = "UPDATE `teacher_quotes` SET quote = ?, subject = ?, date = ?, teacher = ? WHERE quote = ? AND band = 2";
+                statement = connect.prepareStatement(query);
+
+            } //верификатор 3
+            else if(Objects.equals(Application.user.getRole(), 3)){
+                String query = "UPDATE `teacher_quotes` SET quote = ?, subject = ?, date = ?, teacher = ? WHERE quote = ? AND band = 3";
+                statement = connect.prepareStatement(query);
+
+            }
+            statement.setString(1, newQuote.getText());
+            statement.setString(2, subject.getText());
+            statement.setString(3, String.valueOf(date.getValue()));
+            statement.setString(4, teacher.getText());
+            statement.setString(5, oldQuote.getText());
+            /*
             statement.setString(1, newQuote.getText());
             statement.setString(2, subject.getText());
             statement.setString(3, String.valueOf(date.getValue()));
             statement.setString(4, teacher.getText());
             statement.setString(5, Application.user.getLogin());
             statement.setString(6, oldQuote.getText());
+
+             */
 
             if (oldQuote.getText() == "" || newQuote.getText() == "" || subject.getText() == "" || teacher.getText() == "") {
                 check.setTextFill(Paint.valueOf("RED"));

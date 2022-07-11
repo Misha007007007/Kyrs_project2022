@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -52,6 +53,37 @@ public class deleteQuote {
         try {
             user = new Users();
 
+            /*
+            //обычный пользователь
+            if (Objects.equals(Application.user.getRole(), 7)) {
+                String query = "DELETE FROM `teacher_quotes` WHERE `teacher_quotes`.`quote` = ? AND `teacher_quotes`.`login_user` = ?";
+                statement = connect.prepareStatement(query);
+
+                statement.setString(5, Application.user.getLogin());
+                statement.setString(6, oldQuote.getText());
+            } //админ (суперпользователь)
+            else if(Objects.equals(Application.user.getRole(), 0)){
+                String query = "DELETE FROM `teacher_quotes` WHERE `teacher_quotes`.`quote` = ? AND `teacher_quotes`.`login_user` = ?";
+                statement = connect.prepareStatement(query);
+
+            } //верификатор 1
+            else if(Objects.equals(Application.user.getRole(), 1)){
+                String query = "DELETE FROM `teacher_quotes` WHERE `teacher_quotes`.`quote` = ? AND `teacher_quotes`.`login_user` = ?";
+                statement = connect.prepareStatement(query);
+
+            } //верификатор 2
+            else if(Objects.equals(Application.user.getRole(), 2)){
+                String query = "DELETE FROM `teacher_quotes` WHERE `teacher_quotes`.`quote` = ? AND `teacher_quotes`.`login_user` = ?";
+                statement = connect.prepareStatement(query);
+
+            } //верификатор 3
+            else if(Objects.equals(Application.user.getRole(), 3)){
+                String query = "DELETE FROM `teacher_quotes` WHERE `teacher_quotes`.`quote` = ? AND `teacher_quotes`.`login_user` = ?";
+                statement = connect.prepareStatement(query);
+
+            }
+            
+             */
             String query = "DELETE FROM `teacher_quotes` WHERE `teacher_quotes`.`quote` = ? AND `teacher_quotes`.`login_user` = ?";
             PreparedStatement statement = connect.prepareStatement(query);
             statement.setString(1, oldQuote.getText());
