@@ -10,19 +10,14 @@
    <children>
       <AnchorPane layoutY="74.0" prefHeight="326.0" prefWidth="600.0" style="-fx-background-color: #184d12;">
          <children>
-            <TextField fx:id="oldQuote" layoutX="112.0" layoutY="56.0" prefHeight="30.0" prefWidth="376.0" promptText="Старая цитаты">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="newQuote" layoutX="112.0" layoutY="113.0" prefHeight="26.0" prefWidth="376.0" promptText="Новая цитата">
+            <TextField fx:id="oldQuote" layoutX="112.0" layoutY="103.0" prefHeight="30.0" prefWidth="376.0" promptText="Старая цитаты">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
             <Button fx:id="back" layoutX="14.0" layoutY="273.0" mnemonicParsing="false" onAction="#back" prefHeight="39.0" prefWidth="70.0" text="Назад" />
             <Button fx:id="delete" layoutX="256.0" layoutY="180.0" mnemonicParsing="false" onAction="#delete" prefHeight="39.0" prefWidth="89.0" text="Удалить" />
-            <Label fx:id="check" layoutX="57.0" layoutY="21.0" prefHeight="17.0" prefWidth="486.0" />
+            <Label fx:id="check" alignment="CENTER" contentDisplay="CENTER" layoutX="57.0" layoutY="21.0" prefHeight="17.0" prefWidth="486.0" />
          </children></AnchorPane>
       <Label layoutX="132.0" layoutY="5.0" text="Удаление цитат">
          <font>

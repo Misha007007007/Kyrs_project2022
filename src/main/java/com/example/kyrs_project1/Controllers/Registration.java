@@ -68,7 +68,7 @@ public class Registration {
             statement.setString(1, loginReg.getText());
             statement.setString(2, users.hashing(passwordReg.getText()));
             statement.setString(3, group.getText());
-            statement.setInt(4, 3);
+            statement.setInt(4, 7);
             if (loginReg.getText() == "" || users.hashing(passwordReg.getText()) == "" || group.getText() == "") {
                 check.setTextFill(Paint.valueOf("RED"));
                 check.setText("Запоните все поля для успешной регистрации!");

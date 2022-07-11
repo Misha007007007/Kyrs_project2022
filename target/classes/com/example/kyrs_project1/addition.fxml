@@ -17,7 +17,7 @@
             <Label fx:id="check" alignment="CENTER" contentDisplay="CENTER" layoutX="184.0" layoutY="193.0" prefHeight="17.0" prefWidth="232.0" />
             <Button fx:id="add" layoutX="257.0" layoutY="216.0" mnemonicParsing="false" onAction="#add" prefHeight="43.0" prefWidth="87.0" text="Добавить" />
             <Button fx:id="back" layoutX="14.0" layoutY="295.0" mnemonicParsing="false" onAction="#back" text="Назад" />
-            <DatePicker fx:id="date" layoutX="184.0" layoutY="111.0" prefHeight="25.0" prefWidth="232.0" promptText="Дата добавления" />
+            <DatePicker fx:id="date" layoutX="184.0" layoutY="111.0" prefHeight="25.0" prefWidth="232.0" promptText="Дата" />
          </children>
       </AnchorPane>
       <Label layoutX="107.0" text="Добавление цитат">

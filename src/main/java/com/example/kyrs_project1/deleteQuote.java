@@ -35,10 +35,6 @@ public class deleteQuote {
     @FXML
     private Label check;
 
-    //поле новая цитата
-    @FXML
-    private TextField newQuote;
-
     //старая цитата
     @FXML
     private TextField oldQuote;
@@ -93,7 +89,6 @@ public class deleteQuote {
         assert back != null : "fx:id=\"back\" was not injected: check your FXML file 'deleteQuote.fxml'.";
         assert chage != null : "fx:id=\"chage\" was not injected: check your FXML file 'deleteQuote.fxml'.";
         assert check != null : "fx:id=\"check\" was not injected: check your FXML file 'deleteQuote.fxml'.";
-        assert newQuote != null : "fx:id=\"newQuote\" was not injected: check your FXML file 'deleteQuote.fxml'.";
         assert oldQuote != null : "fx:id=\"oldQuote\" was not injected: check your FXML file 'deleteQuote.fxml'.";
     }
 }

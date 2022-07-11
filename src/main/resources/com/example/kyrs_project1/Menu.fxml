@@ -14,6 +14,8 @@
             <Button fx:id="allQuotes" layoutX="14.0" layoutY="225.0" mnemonicParsing="false" onAction="#allQuotes" prefHeight="79.0" prefWidth="114.0" text="Сборник цитат" />
             <Label layoutX="86.0" layoutY="29.0" text="Для изменения или добавления новых цитат перейдите в окно &quot;Мои цитаты&quot;" textFill="WHITE" />
             <Button fx:id="chagePassword" layoutX="404.0" layoutY="135.0" mnemonicParsing="false" onAction="#chagePassword" prefHeight="79.0" prefWidth="182.0" text="Изменение пароля" />
+            <Label fx:id="countQuotes" alignment="CENTER" contentDisplay="CENTER" layoutX="147.0" layoutY="62.0" prefHeight="17.0" prefWidth="306.0" />
+            <Button fx:id="count" layoutX="218.0" layoutY="279.0" mnemonicParsing="false" onAction="#count" text="Показать количество цитат" />
          </children>
       </AnchorPane>
       <Label layoutX="286.0" layoutY="39.0" />

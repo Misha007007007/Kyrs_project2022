@@ -1,10 +1,7 @@
 package com.example.kyrs_project1.Controllers;
 //класс со всеми ццитататми
 import java.net.URL;
-import java.util.Collection;
-import java.util.Date;
-import java.util.Properties;
-import java.util.ResourceBundle;
+import java.util.*;
 
 import com.example.kyrs_project1.Application;
 import com.example.kyrs_project1.QuoteEntry;
@@ -20,7 +17,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class Quotes {
     private QuotesContainer quotesContainer = new QuotesContainer();
 
-    private Users users;
+    private Users user;
 
     //нопка назад
     @FXML
@@ -32,29 +29,38 @@ public class Quotes {
     @FXML
     private URL location;
 
+    //поле дата
     @FXML
     private TableColumn<QuoteEntry, Date> date;
 
+    //поле логин
     @FXML
     private TableColumn<QuoteEntry, String> lognUser;
 
+    //поле цитата
     @FXML
     private TableColumn<QuoteEntry, String> quotes;
 
+    //поле предмет
     @FXML
     private TableColumn<QuoteEntry, String> subject;
 
+    //поле преподаватель
     @FXML
     private TableColumn<QuoteEntry, String> teacher;
+
     //таблица
     @FXML
     private TableView tabelQuotes;
 
-
-    //метод назад
+    //метод назад для пользователя и гостя
     @FXML
     void back(ActionEvent event) {
-        Application.changeScene("Menu.fxml");
+        if (Application.user == null){
+            Application.changeScene("hello-view.fxml");
+        }else {
+            Application.changeScene("Menu.fxml");
+        }
     }
 
     @FXML
